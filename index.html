@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Page</title>
     <style>
-        /* Add your styles here */
+        #start-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff6f00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000; /* Make sure it appears above other elements */
+        }
+        
+        #start-btn.hidden {
+            display: none;
+        }
     </style>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <audio id="background-music" src="music1.mp3" preload="auto"></audio>
+    <button id="start-btn">Here !!!</button>
+    
+    <audio id="background-music" src="music1.mp3" preload="auto"></audio> 
     <div id="layer-0">
         <div id="intro-text">
             <span id="t1">I wanted to make you a cake...</span>
@@ -55,13 +73,23 @@
     </div> <!-- Added missing closing tag for #container-cake -->
     <script src="script.js"></script>
   <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-        var audio = document.getElementById('background-music');
-        audio.play().catch(function(error) {
-          // Handle autoplay policy restrictions
-          console.log('Autoplay prevented:', error);
+        document.addEventListener('DOMContentLoaded', function() {
+            var startButton = document.getElementById('start-btn');
+            var audio = document.getElementById('background-music');
+
+            startButton.addEventListener('click', function() {
+                startAnimation();
+                audio.play().catch(function(error) {
+                    console.log('Autoplay prevented:', error);
+                });
+                startButton.classList.add('hidden');
+            });
+
+            function startAnimation() {
+                // Place your animation start code here
+                console.log('Birthday Page');
+            }
         });
-      });
     </script>
 </body>
 </html>
