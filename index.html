@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+     <audio id="background-music" src="music1.mp3" preload="auto"></audio>
     <div id="layer-0">
         <div id="intro-text">
             <span id="t1">I wanted to make you a cake...</span>
@@ -53,5 +54,14 @@
         </div> <!-- Added missing closing tag for #candle -->
     </div> <!-- Added missing closing tag for #container-cake -->
     <script src="script.js"></script>
-  </body>
+  <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        var audio = document.getElementById('background-music');
+        audio.play().catch(function(error) {
+          // Handle autoplay policy restrictions
+          console.log('Autoplay prevented:', error);
+        });
+      });
+    </script>
+</body>
 </html>
