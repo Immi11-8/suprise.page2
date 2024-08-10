@@ -1,3 +1,39 @@
+$(document).ready(function() {
+    // Function to start animations and play music
+    function startAnimation() {
+        $('#background-music')[0].play(); // Play the music
+
+        // Place your animation start code here
+        startstage(); // Example function for animation
+    }
+
+    // When the "OPEN" button is clicked
+    $('#start-btn').click(function() {
+        $('#curtain').addClass('open');
+        $('#layer-0').addClass('out');
+        
+        setTimeout(function() {
+            $('#container-cake').removeClass('intro');
+            $('#layer-0').css({display: 'none'});
+        }, 1000);
+        
+        // Call startAnimation when the button is clicked
+        startAnimation();
+    });
+
+    // Additional functionality for "PLAY" button
+    $('#play').click(function() {
+        if ($('#play').hasClass('pause')) {
+            roll1(1000);
+            roll2(200);
+        } else {
+            clearInterval(mm1);
+            clearInterval(mm2);
+        }
+        $('#play').toggleClass('pause');
+    });
+});
+
 function startstage() {
   $('#t1').animate({opacity:1, top:'0px'},500);
   setTimeout(function(){
