@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var startButton = document.getElementById('start-btn');
+    var audio = document.getElementById('background-music');
+
+    startButton.addEventListener('click', function() {
+        startAnimation();
+        audio.play().catch(function(error) {
+            console.log('Autoplay prevented:', error);
+        });
+        startButton.classList.add('hidden');
+    });
+
+    function startAnimation() {
+        // Place your animation start code here
+        console.log('Birthday Page');
+    }
+});
+
+
 function startstage() {
   $('#t1').animate({opacity:1, top:'0px'},500);
   setTimeout(function(){
